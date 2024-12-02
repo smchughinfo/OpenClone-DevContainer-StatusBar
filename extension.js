@@ -1,23 +1,30 @@
-const vscode = require('vscode');
+const vscode = require("vscode");
 
 /**
  * @param {vscode.ExtensionContext} context
  */
 function activate(context) {
     // Create a status bar item
-    const statusBarItem = vscode.window.createStatusBarItem(vscode.StatusBarAlignment.Left, 100);
+    const statusBarItem = vscode.window.createStatusBarItem(
+        vscode.StatusBarAlignment.Left,
+        100
+    );
 
-    // Read the custom text from the configuration
-    const config = vscode.workspace.getConfiguration('opencloneDevContainerStatusBar');
-    statusBarItem.text = config.get('text', 'THIS IS A TEST'); // Default if not set
+    // Function to update the status bar
+    const updateStatusBar = () => {
+        const config = vscode.workspace.getConfiguration("opencloneDevContainerStatusBar");
+        const text = config.get("text", "");
+        statusBarItem.text = text;
+    };
 
+    // Initial setup
+    updateStatusBar();
     statusBarItem.show();
 
-    // Update the text dynamically if the setting changes
+    // Listen for configuration changes
     vscode.workspace.onDidChangeConfiguration((e) => {
-        if (e.affectsConfiguration('opencloneDevContainerStatusBar.text')) {
-            const updatedConfig = vscode.workspace.getConfiguration('opencloneDevContainerStatusBar');
-            statusBarItem.text = updatedConfig.get('text', 'THIS IS A TEST');
+        if (e.affectsConfiguration("opencloneDevContainerStatusBar.text")) {
+            updateStatusBar();
         }
     });
 

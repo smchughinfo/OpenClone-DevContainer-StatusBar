@@ -1,7 +1,7 @@
 {
   "name": "openclone-devcontainer-statusbar",
   "displayName": "OpenClone-DevContainer-StatusBar",
-  "description": "adds information to satus bar",
+  "description": "Adds information to the status bar",
   "version": "0.0.1",
   "engines": {
     "vscode": "^1.95.0"
@@ -9,22 +9,21 @@
   "categories": [
     "Other"
   ],
-  "activationEvents": ["*"],
+  "activationEvents": [
+    "onStartupFinished",
+    "onDidChangeConfiguration:opencloneDevContainerStatusBar.text"
+  ],
   "main": "./extension.js",
   "contributes": {
-    "commands": [{
-      "command": "openclone-devcontainer-statusbar.helloWorld",
-      "title": "Hello World"
-    }],
     "configuration": {
       "type": "object",
       "title": "OpenClone DevContainer StatusBar Settings",
       "properties": {
-          "opencloneDevContainerStatusBar.text": {
-              "type": "string",
-              "default": "THIS IS A TEST",
-              "description": "Text to display in the status bar."
-          }
+        "opencloneDevContainerStatusBar.text": {
+          "type": "string",
+          "default": "OpenClone DevContainer StatusBar",
+          "description": "Text to display in the status bar."
+        }
       }
     }
   },
