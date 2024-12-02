@@ -35,7 +35,8 @@ go into the package.json and set "activationEvents": ["*"] so that vscode will r
 
 1. npm install -g vsce
 2. vsce package
-
+3. it spits out a .vsix
+4. open vscode, go to extensions, click the three dots, "Install From VSIX..."
 
 
 
