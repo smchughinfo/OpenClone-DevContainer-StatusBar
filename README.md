@@ -1,3 +1,4 @@
+0. add color theme [unthrottled.doki-theme](https://marketplace.visualstudio.com/items?itemName=unthrottled.doki-theme)
 1. https://code.visualstudio.com/api/get-started/your-first-extension
 2. npm install --global yo generator-code
 3. yo code

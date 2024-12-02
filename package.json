@@ -15,7 +15,18 @@
     "commands": [{
       "command": "openclone-devcontainer-statusbar.helloWorld",
       "title": "Hello World"
-    }]
+    }],
+    "configuration": {
+      "type": "object",
+      "title": "OpenClone DevContainer StatusBar Settings",
+      "properties": {
+          "opencloneDevContainerStatusBar.text": {
+              "type": "string",
+              "default": "THIS IS A TEST",
+              "description": "Text to display in the status bar."
+          }
+      }
+    }
   },
   "scripts": {
     "lint": "eslint .",
